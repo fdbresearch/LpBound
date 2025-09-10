@@ -1,0 +1,13 @@
+LpBound-l1:
+stats: 28.7 seconds
+joblight: 13.2 seconds
+jobrange: 44.6 seconds
+jobjoin: 5.2 seconds
+subgraph_matching: 0.6 seconds
+
+LpBound:
+stats: 33.5 seconds
+joblight: 20.0 seconds
+jobrange: 56.9 seconds
+jobjoin: 15.8 seconds
+subgraph_matching: 1.5 seconds

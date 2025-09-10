@@ -1,0 +1,5 @@
+Space usage for each benchmark:
+joblight: 1.250976 MB
+stats: 4.760928 MB
+jobrange: 7.557024 MB
+jobjoin: 0.046464 MB

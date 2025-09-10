@@ -1,0 +1,1 @@
+./build/lpbound_parallel --full-queries --input-dir input_data_full_queries/jobjoin_lpbase  --output-dir output

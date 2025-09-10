@@ -1,0 +1,152 @@
+{
+  "name": "stats",
+  "relations": {
+    "USERS": {
+      "ID": "int",
+      "REPUTATION": "int",
+      "CREATIONDATE": "date",
+      "VIEWS": "int",
+      "UPVOTES": "int",
+      "DOWNVOTES": "int"
+    },
+    "POSTS": {
+      "ID": "int",
+      "POSTTYPEID": "int",
+      "CREATIONDATE": "date",
+      "SCORE": "int",
+      "VIEWCOUNT": "int",
+      "OWNERUSERID": "int",
+      "ANSWERCOUNT": "int",
+      "COMMENTCOUNT": "int",
+      "FAVORITECOUNT": "int",
+      "LASTEDITORUSERID": "int"
+    },
+    "POSTLINKS": {
+      "ID": "int",
+      "CREATIONDATE": "date",
+      "POSTID": "int",
+      "RELATEDPOSTID": "int",
+      "LINKTYPEID": "int"
+    },
+    "POSTHISTORY": {
+      "ID": "int",
+      "POSTHISTORYTYPEID": "int",
+      "POSTID": "int",
+      "CREATIONDATE": "date",
+      "USERID": "int"
+    },
+    "COMMENTS": {
+      "ID": "int",
+      "POSTID": "int",
+      "SCORE": "int",
+      "CREATIONDATE": "date",
+      "USERID": "int"
+    },
+    "VOTES": {
+      "ID": "int",
+      "POSTID": "int",
+      "VOTETYPEID": "int",
+      "CREATIONDATE": "date",
+      "USERID": "int",
+      "BOUNTYAMOUNT": "int"
+    },
+    "BADGES": {
+      "ID": "int",
+      "USERID": "int",
+      "DATE": "date"
+    },
+    "TAGS": {
+      "ID": "int",
+      "COUNT": "int",
+      "EXCERPTPOSTID": "int"
+    }
+  },
+  "join_variables": {
+    "BADGES": ["USERID"],
+    "USERS": ["ID"],
+    "TAGS": ["EXCERPTPOSTID"],
+    "COMMENTS": ["POSTID", "USERID"],
+    "POSTHISTORY": ["POSTID", "USERID"],
+    "VOTES": ["POSTID", "USERID"],
+    "POSTS": ["OWNERUSERID", "ID"],
+    "POSTLINKS": ["POSTID", "RELATEDPOSTID"]
+  },
+  "groupby_variables": {
+    "USERS": [
+      ["*"],
+      ["UPVOTES"],
+      ["DOWNVOTES"],
+      ["REPUTATION"],
+      ["CREATIONDATE"],
+      ["VIEWS"]
+    ],
+    "BADGES": [["*"], ["DATE"], ["USERID"]],
+    "COMMENTS": [["*"], ["SCORE"], ["CREATIONDATE"]],
+    "POSTHISTORY": [["*"], ["POSTHISTORYTYPEID"], ["CREATIONDATE"]],
+    "POSTS": [
+      ["*"],
+      ["ANSWERCOUNT"],
+      ["COMMENTCOUNT"],
+      ["CREATIONDATE"],
+      ["FAVORITECOUNT"],
+      ["SCORE"],
+      ["POSTTYPEID"],
+      ["VIEWCOUNT"],
+      ["OWNERUSERID"]
+    ],
+    "POSTLINKS": [["*"], ["CREATIONDATE"], ["LINKTYPEID"]],
+    "VOTES": [["*"], ["BOUNTYAMOUNT"], ["CREATIONDATE"], ["VOTETYPEID"]],
+    "TAGS": [["*"], ["COUNT"], ["EXCERPTPOSTID"]]
+  },
+  "equality_predicate_variables": {
+    "COMMENTS": ["SCORE"],
+    "POSTHISTORY": ["POSTHISTORYTYPEID"],
+    "POSTLINKS": ["LINKTYPEID"],
+    "USERS": ["VIEWS", "UPVOTES", "DOWNVOTES"],
+    "VOTES": ["VOTETYPEID"],
+    "POSTS": [
+      "ANSWERCOUNT",
+      "FAVORITECOUNT",
+      "POSTTYPEID",
+      "SCORE",
+      "COMMENTCOUNT"
+    ]
+  },
+  "range_predicate_variables": {
+    "USERS": ["CREATIONDATE", "VIEWS", "UPVOTES", "REPUTATION", "DOWNVOTES"],
+    "BADGES": ["DATE"],
+    "POSTHISTORY": ["CREATIONDATE"],
+    "POSTS": [
+      "CREATIONDATE",
+      "ANSWERCOUNT",
+      "FAVORITECOUNT",
+      "VIEWCOUNT",
+      "SCORE",
+      "COMMENTCOUNT"
+    ],
+    "POSTLINKS": ["CREATIONDATE"],
+    "COMMENTS": ["CREATIONDATE"],
+    "VOTES": ["CREATIONDATE", "BOUNTYAMOUNT"]
+  },
+  "fk_pk_joins_dict": {
+    "BADGES": [{ "pk_relation": "USERS", "fk": "USERID", "pk": "ID" }],
+    "TAGS": [{ "pk_relation": "POSTS", "fk": "EXCERPTPOSTID", "pk": "ID" }],
+    "COMMENTS": [
+      { "pk_relation": "USERS", "fk": "USERID", "pk": "ID" },
+      { "pk_relation": "POSTS", "fk": "POSTID", "pk": "ID" }
+    ],
+    "POSTHISTORY": [
+      { "pk_relation": "USERS", "fk": "USERID", "pk": "ID" },
+      { "pk_relation": "POSTS", "fk": "POSTID", "pk": "ID" }
+    ],
+    "VOTES": [
+      { "pk_relation": "USERS", "fk": "USERID", "pk": "ID" },
+      { "pk_relation": "POSTS", "fk": "POSTID", "pk": "ID" }
+    ],
+    "POSTS": [{ "pk_relation": "USERS", "fk": "OWNERUSERID", "pk": "ID" }],
+    "POSTLINKS": [
+      { "pk_relation": "POSTS", "fk": "POSTID", "pk": "ID" },
+      { "pk_relation": "POSTS", "fk": "RELATEDPOSTID", "pk": "ID" }
+    ]
+  }
+}

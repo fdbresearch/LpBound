@@ -1,0 +1,12 @@
+create index idx_posts_owneruserid on posts(owneruserid);
+create index  idx_posts_lasteditoruserid on posts(lasteditoruserid);
+create index idx_postlinks_relatedpostid on postLinks(relatedpostid);
+create index idx_postlinks_postid on postLinks(postid);
+create index idx_posthistory_postid on postHistory(postid);
+create index idx_posthistory_userid on postHistory(userid);
+create index idx_comments_postid on comments(postid);
+create index idx_comments_userid on comments(userid);
+create index idx_votes_userid on votes(userid);
+create index idx_votes_postid on votes(postid);
+create index idx_badges_userid on badges(userid);
+create index idx_tags_excerptpostid on tags(excerptpostid);

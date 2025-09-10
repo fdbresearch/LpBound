@@ -1,0 +1,21 @@
+{
+  "name": "subgraph_matching",
+  "relations": {
+    "dblp.vertex": {
+      "i": "int",
+      "l": "int",
+      "d": "int"
+    },
+    "dblp.edge": {
+      "s": "int",
+      "t": "int"
+    }
+  },
+  "join_variables": {
+    "dblp.edge": ["s", "t"]
+  },
+  "groupby_variables": {},
+  "equality_predicate_variables": {},
+  "range_predicate_variables": {},
+  "fk_pk_joins_dict": {}
+}

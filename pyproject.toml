@@ -1,0 +1,15 @@
+[project]
+name = "lpbound"
+version = "1.0.0"
+description = "The LpBound Pessimistic Cardinality Estimator"
+authors = [{ name = "Haozhe Zhang", email = "haozhe.zhang@uzh.ch" }, { name = "Christoph Mayer", email = "christoph.mayer@uzh.ch" }, { name = "Mahmoud Abo Khamis", email = "mahmoud.abokhamis@relational.ai" }, { name = "Dan Olteanu", email = "dan.olteanu@uzh.ch" }, { name = "Dan Suciu", email = "suciu@cs.washington.edu" }]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["tqdm (>=4.67.1,<5.0.0)", "pandas (>=2.2.3,<3.0.0)", "duckdb (==0.10.1)", "sqlparse (>=0.5.3,<0.6.0)", "ortools (>=9.12.4544,<10.0.0)", "psycopg2-binary (>=2.9.10,<3.0.0)", "cython (>=3.1.2,<4.0.0)", "setuptools (>=80.9.0,<81.0.0)", "joblib (>=1.5.1,<2.0.0)", "pyodbc (>=5.2.0,<6.0.0)"]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

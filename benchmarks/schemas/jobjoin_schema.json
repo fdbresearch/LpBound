@@ -1,0 +1,204 @@
+{
+  "name": "jobjoin",
+  "relations": {
+    "AKA_NAME": {
+      "ID": "int",
+      "PERSON_ID": "int",
+      "NAME": "str",
+      "IMDB_INDEX": "str",
+      "NAME_PCODE_CF": "str",
+      "NAME_PCODE_NF": "str",
+      "SURNAME_PCODE": "str",
+      "MD5SUM": "str"
+    },
+    "AKA_TITLE": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "TITLE": "str",
+      "IMDB_INDEX": "str",
+      "KIND_ID": "int",
+      "PRODUCTION_YEAR": "int",
+      "PHONETIC_CODE": "str",
+      "EPISODE_OF_ID": "int",
+      "SEASON_NR": "int",
+      "EPISODE_NR": "int",
+      "NOTE": "str",
+      "MD5SUM": "str"
+    },
+    "CAST_INFO": {
+      "ID": "int",
+      "PERSON_ID": "int",
+      "MOVIE_ID": "int",
+      "PERSON_ROLE_ID": "int",
+      "NOTE": "str",
+      "NR_ORDER": "int",
+      "ROLE_ID": "int"
+    },
+    "CHAR_NAME": {
+      "ID": "int",
+      "NAME": "str",
+      "IMDB_INDEX": "str",
+      "IMDB_ID": "int",
+      "NAME_PCODE_NF": "str",
+      "SURNAME_PCODE": "str",
+      "MD5SUM": "str"
+    },
+    "COMP_CAST_TYPE": {
+      "ID": "int",
+      "KIND": "str"
+    },
+    "COMPANY_NAME": {
+      "ID": "int",
+      "NAME": "str",
+      "COUNTRY_CODE": "int",
+      "IMDB_ID": "int",
+      "NAME_PCODE_NF": "str",
+      "NAME_PCODE_SF": "str",
+      "MD5SUM": "str"
+    },
+    "COMPANY_TYPE": {
+      "ID": "int",
+      "KIND": "str"
+    },
+    "COMPLETE_CAST": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "SUBJECT_ID": "int",
+      "STATUS_ID": "int"
+    },
+    "INFO_TYPE": {
+      "ID": "int",
+      "INFO": "str"
+    },
+    "KEYWORD": {
+      "ID": "int",
+      "KEYWORD": "str",
+      "PHONETIC_CODE": "str"
+    },
+    "KIND_TYPE": {
+      "ID": "int",
+      "KIND": "str"
+    },
+    "LINK_TYPE": {
+      "ID": "int",
+      "LINK": "str"
+    },
+    "MOVIE_COMPANIES": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "COMPANY_ID": "int",
+      "COMPANY_TYPE_ID": "int",
+      "NOTE": "str"
+    },
+    "MOVIE_INFO_IDX": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "INFO_TYPE_ID": "int",
+      "INFO": "str",
+      "NOTE": "str"
+    },
+    "MOVIE_KEYWORD": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "KEYWORD_ID": "int"
+    },
+    "MOVIE_LINK": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "LINKED_MOVIE_ID": "int",
+      "LINK_TYPE_ID": "int"
+    },
+    "NAME": {
+      "ID": "int",
+      "NAME": "str",
+      "IMDB_INDEX": "str",
+      "IMDB_ID": "int",
+      "GENDER": "str",
+      "NAME_PCODE_CF": "str",
+      "NAME_PCODE_NF": "str",
+      "SURNAME_PCODE": "str",
+      "MD5SUM": "str"
+    },
+    "ROLE_TYPE": {
+      "ID": "int",
+      "ROLE": "str"
+    },
+    "TITLE": {
+      "ID": "int",
+      "TITLE": "str",
+      "IMDB_INDEX": "str",
+      "KIND_ID": "int",
+      "PRODUCTION_YEAR": "int",
+      "IMDB_ID": "int",
+      "PHONETIC_CODE": "str",
+      "EPISODE_OF_ID": "int",
+      "SEASON_NR": "int",
+      "EPISODE_NR": "int",
+      "SERIES_YEARS": "str",
+      "MD5SUM": "str"
+    },
+    "MOVIE_INFO": {
+      "ID": "int",
+      "MOVIE_ID": "int",
+      "INFO_TYPE_ID": "int",
+      "INFO": "str",
+      "NOTE": "str"
+    },
+    "PERSON_INFO": {
+      "ID": "int",
+      "PERSON_ID": "int",
+      "INFO_TYPE_ID": "int",
+      "INFO": "str",
+      "NOTE": "str"
+    }
+  },
+  "join_variables": {
+    "MOVIE_COMPANIES": ["COMPANY_ID", "COMPANY_TYPE_ID", "MOVIE_ID"],
+    "MOVIE_INFO_IDX": ["INFO_TYPE_ID", "MOVIE_ID"],
+    "MOVIE_INFO": ["INFO_TYPE_ID", "MOVIE_ID"],
+    "PERSON_INFO": ["INFO_TYPE_ID", "PERSON_ID"],
+    "MOVIE_KEYWORD": ["KEYWORD_ID", "MOVIE_ID"],
+    "AKA_TITLE": ["KIND_ID", "MOVIE_ID"],
+    "TITLE": ["ID", "KIND_ID"],
+    "MOVIE_LINK": ["LINK_TYPE_ID", "LINKED_MOVIE_ID", "MOVIE_ID"],
+    "CAST_INFO": ["MOVIE_ID", "PERSON_ID", "PERSON_ROLE_ID", "ROLE_ID"],
+    "COMPLETE_CAST": ["MOVIE_ID", "STATUS_ID", "SUBJECT_ID"],
+    "AKA_NAME": ["PERSON_ID"],
+    "CHAR_NAME": ["ID"],
+    "COMP_CAST_TYPE": ["ID"],
+    "COMPANY_NAME": ["ID"],
+    "COMPANY_TYPE": ["ID"],
+    "INFO_TYPE": ["ID"],
+    "KEYWORD": ["ID"],
+    "KIND_TYPE": ["ID"],
+    "LINK_TYPE": ["ID"],
+    "NAME": ["ID"],
+    "ROLE_TYPE": ["ID"]
+  },
+  "groupby_variables": {
+    "AKA_NAME": [["*"]],
+    "AKA_TITLE": [["*"]],
+    "CAST_INFO": [["*"]],
+    "CHAR_NAME": [["*"]],
+    "COMP_CAST_TYPE": [["*"]],
+    "COMPANY_NAME": [["*"]],
+    "COMPANY_TYPE": [["*"]],
+    "COMPLETE_CAST": [["*"]],
+    "INFO_TYPE": [["*"]],
+    "KEYWORD": [["*"]],
+    "KIND_TYPE": [["*"]],
+    "LINK_TYPE": [["*"]],
+    "MOVIE_COMPANIES": [["*"]],
+    "MOVIE_INFO_IDX": [["*"]],
+    "MOVIE_KEYWORD": [["*"]],
+    "MOVIE_LINK": [["*"]],
+    "NAME": [["*"]],
+    "ROLE_TYPE": [["*"]],
+    "TITLE": [["*"]],
+    "MOVIE_INFO": [["*"]],
+    "PERSON_INFO": [["*"]]
+  },
+  "equality_predicate_variables": {},
+  "range_predicate_variables": {},
+  "fk_pk_joins_dict": {}
+}

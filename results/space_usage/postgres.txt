@@ -1,0 +1,18 @@
+Postgres creates for all columns MCVs and histograms.  To make the comparison fair, we only consider the space usage of the columns that are used in the queries (as in the other approaches). 
+
+We employ a simple model to estimate the space usage of a column as follows:
+- If the column might be used in a range predicate, we assume postgres creates a histogram with 100 buckets, thus 101 * 4 bytes = 404 bytes.
+- If the column might be used in an equality predicate, we assume postgres creates at most 100 MCVs, thus min(100 * 4 bytes, 4 bytes * number of distinct values).
+
+The results are as follows:
+
+1. stats: ~11.2 kB
+- range-only: 2.0 kB
+- equality-only: 0.3 kB
+- range and equality: 8.9 kB
+
+2. joblight: ~1.9 kB
+- equality-only: 1.1 kB
+- range and equality: 0.8 kB
+
+3. jobjoin: <1 kB
